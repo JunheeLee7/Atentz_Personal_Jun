@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sunshine : MonoBehaviour
 {
     public Material skybox;
-    float alpha = 1.0f;
+    float alpha = 0.0f;
     public float forTimeInGame;  // 시간의 경과
 
     private bool isNight = false;
@@ -19,7 +19,7 @@ public class Sunshine : MonoBehaviour
 
     private void Update()
     {
-        alpha = alpha - 0.00001f;
+        alpha = alpha + 0.00001f;
         skybox.SetFloat("_CubemapTransition", alpha);
         transform.Rotate(Vector3.right, forTimeInGame * Time.deltaTime); // light의 회전
         SunLight();
